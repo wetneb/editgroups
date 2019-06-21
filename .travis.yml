@@ -1,9 +1,5 @@
 
 language: python
-dist: xenial
-
-addons:
-  mariadb: '10.3'
 
 python:
   - 3.5
@@ -37,7 +33,7 @@ install:
 
 before_script:
   - mysql --version
-  - mysql -u travis -e 'CREATE DATABASE editgroups;'
+  - mysql -u travis -e 'CREATE DATABASE editgroups CHARACTER SET utf8;'
 
 script:
   - coverage run --source=editgroups,store,revert,tagging --omit=*/migrations/*,editgroups/settings/* manage.py test -v 2
