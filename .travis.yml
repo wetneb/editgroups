@@ -33,7 +33,7 @@ install:
 
 before_script:
   - mysql --version
-  - mysql -u travis -e 'CREATE DATABASE editgroups CHARACTER SET utf8;'
+  - mysql -u travis -e 'CREATE DATABASE editgroups CHARACTER SET utf8mb4;'
 
 script:
   - coverage run --source=editgroups,store,revert,tagging --omit=*/migrations/*,editgroups/settings/* manage.py test -v 2
